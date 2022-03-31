@@ -1,18 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CampMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void HandleInput(object sender, EventArgs e)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+            Debug.Log("Opening Camp Menu!");
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            Debug.Log("Closing Camp Menu!");
+        }
     }
 }
