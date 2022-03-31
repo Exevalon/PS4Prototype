@@ -13,16 +13,15 @@ public class Player : MonoBehaviour
         float hor = InputManager.Instance.GetHorizontalAxis();
         float ver = InputManager.Instance.GetVerticalAxis();
 
-        if (ver != 0)
-        {
-            animator.SetFloat("Speed", ver * speed);
+        if (ver != 0 || hor != 0)
             animator.SetBool("Idle", false);
-        }
         else
             animator.SetBool("Idle", true);
 
-        Vector2 move = new Vector2(hor, ver) * speed * Time.deltaTime;
+        // Set animation based on direction of movement
+        animator.SetFloat("Move", ver);
 
+        Vector2 move = new Vector2(hor, ver) * speed * Time.deltaTime;
         transform.Translate(move);
     }
 }
