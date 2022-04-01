@@ -5,25 +5,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public event EventHandler handleInput;
+    public event EventHandler campHandleInput;
+    public event EventHandler startHandleInput;
 
     public CampMenu campMenu;
+    public StartMenu startMenu;
+
+    public static bool eventIsEnabled = false;
 
     private void Start()
     {
-        handleInput += campMenu.HandleInput;
+        campHandleInput += campMenu.HandleInput;
+        startHandleInput += startMenu.HandleInput;
     }
 
     private void Update()
     {
-        // If we're in the overworld open the camp menu
         if (InputManager.Instance.GetInteractButton())
-            HandleInput();
+            HandleInput(campHandleInput);
+
+        if (InputManager.Instance.GetStartButton())
+            HandleInput(startHandleInput);
     }
 
-    public void HandleInput()
+    public void HandleInput(EventHandler eventHandler)
     {
-        EventHandler handler = handleInput;
+        EventHandler handler = eventHandler;
         if (handler != null)
             handler(this, EventArgs.Empty);
     }

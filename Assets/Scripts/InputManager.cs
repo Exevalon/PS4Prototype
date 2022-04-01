@@ -21,4 +21,9 @@ public class InputManager : Singleton<InputManager>
     {
         return Input.GetButtonDown("Fire1");
     }
+
+    public bool GetStartButton()
+    {
+        return Input.GetButtonDown("Start");
+    }
 }
