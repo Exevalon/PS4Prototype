@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Command_Attack : ICommand
+public class Command : ICommand
 {
     public int Countdown { get; set; }
     public string Name { get; set; }

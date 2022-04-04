@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class Command_Skill : ICommand
 {
-    public GameObject Source { get; set; }
-    public GameObject Target { get; set; }
+    public int Countdown { get; set; }
+    public string Name { get; set; }
+    public string Owner { get; set; }
 
-    // needs a skill interface
-    // will access a skill list
+    // needs a technique interface
+    // will access a list of techniques
 
-    public void HandleInput()
+    public void Execute()
     {
 
     }
-    public void OnEnter()
+    public void UpdateEvent()
     {
 
     }
-    public void OnExit()
-    {
-
-    }
-    public bool IsUsable()
+    public bool IsFinished()
     {
         // This is where code will go that determines if a command is usable or not
         // placing a default variable for now
-        bool isUsable = true;
-        return isUsable;
+        bool isFinished = true;
+        return isFinished;
     }
 }

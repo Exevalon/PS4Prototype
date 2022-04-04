@@ -4,10 +4,10 @@ using UnityEngine;
 
 public interface ICommand
 {
-    public abstract GameObject Source { get; set; }
-    public abstract GameObject Target { get; set; }
-    public abstract void HandleInput();
-    public abstract void OnEnter();
-    public abstract void OnExit();
-    public abstract bool IsUsable();
+    public abstract int Countdown { get; set; }
+    public abstract string Name { get; set; }
+    public abstract string Owner { get; set;}
+    public abstract void Execute();
+    public abstract void UpdateEvent();
+    public abstract bool IsFinished();
 }

@@ -17,6 +17,17 @@ public class GameManager : MonoBehaviour
     {
         campHandleInput += campMenu.HandleInput;
         startHandleInput += startMenu.HandleInput;
+
+        // We create our queue by calling Create and then Add
+        // we add some mock events, and we call Print to see what happens
+        CommandQueue commandQueue = new CommandQueue();
+        commandQueue.Create();
+
+        commandQueue.Add(new Command { Name = "Welcome to the Arena!" }, -1);
+        commandQueue.Add(new Command { Name = "Take Turn Goblin" }, 5);
+        commandQueue.Add(new Command { Name = "Take Turn Hero" }, 4);
+
+        commandQueue.Print();
     }
 
     private void Update()
