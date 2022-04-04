@@ -6,16 +6,19 @@ public class Command_Guard : ICommand
 {
     public int Countdown { get; set; }
     public string Name { get; set; }
-    public string Owner { get; set; }
+    public Actor Owner { get; set; }
 
-    // needs a technique interface
-    // will access a list of techniques
+    public int TimePoints(CommandQueue queue)
+    {
+        int speed = Owner.ActorSpeed;
+        return queue.SpeedToTimePoints(speed);
+    }
 
-    public void Execute()
+    public void Execute(CommandQueue queue)
     {
 
     }
-    public void UpdateEvent()
+    public void UpdateCommand()
     {
 
     }

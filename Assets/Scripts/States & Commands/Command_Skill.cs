@@ -6,16 +6,22 @@ public class Command_Skill : ICommand
 {
     public int Countdown { get; set; }
     public string Name { get; set; }
-    public string Owner { get; set; }
+    public Actor Owner { get; set; }
 
-    // needs a technique interface
-    // will access a list of techniques
+    // this will take a list of skills
+    // will also implement a skill interface
 
-    public void Execute()
+    public int TimePoints(CommandQueue queue)
+    {
+        int speed = Owner.ActorSpeed;
+        return queue.SpeedToTimePoints(speed);
+    }
+
+    public void Execute(CommandQueue queue)
     {
 
     }
-    public void UpdateEvent()
+    public void UpdateCommand()
     {
 
     }

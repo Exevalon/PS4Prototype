@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IState
 {
-    public abstract void HandleInput();
-    public abstract void OnEnter();
-    public abstract void OnExit();
-    public abstract void UpdateState();
+    void HandleInput();
+    void OnEnter();
+    void OnExit();
+    void UpdateState();
 }

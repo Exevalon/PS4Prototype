@@ -55,12 +55,12 @@ public class CommandQueue
     {
         ICommand current = currentCommand;
 
-        if (current.Owner == actor.ActorName)
+        if (current.Owner == actor)
             return true;
 
         foreach(ICommand command in commandList)
         {
-            if (command.Owner == actor.ActorName)
+            if (command.Owner == actor)
                 return true;
         }
 
@@ -72,7 +72,7 @@ public class CommandQueue
         for(int i = commandList.Count - 1; i > 0; i--)
         {
             ICommand command = commandList[i];
-            if(command.Owner == actor.ActorName)
+            if(command.Owner == actor)
                 commandList.RemoveAt(i);
         }
     }
@@ -106,6 +106,33 @@ public class CommandQueue
         {
             string toPrint = $"{c.Name}, {c.Countdown}";
             Debug.Log(toPrint);
+        }
+    }
+
+    public void UpdateCommand()
+    {
+        if (currentCommand != null)
+        {
+            currentCommand.UpdateCommand();
+
+            if (currentCommand.IsFinished())
+                currentCommand = null;
+            else
+                return;
+        }
+        else if (IsEmpty())
+            return;
+        else
+        {
+            ICommand commandInFront = commandList[0];
+            commandList.RemoveAt(0);
+            commandInFront.Execute(this);
+            currentCommand = commandInFront;
+        }
+
+        foreach(ICommand command in commandList)
+        {
+            command.Countdown = Mathf.Max(0, command.Countdown - 1);
         }
     }
 }

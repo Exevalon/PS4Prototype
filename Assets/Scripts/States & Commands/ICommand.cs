@@ -4,10 +4,11 @@ using UnityEngine;
 
 public interface ICommand
 {
-    public abstract int Countdown { get; set; }
-    public abstract string Name { get; set; }
-    public abstract string Owner { get; set;}
-    public abstract void Execute();
-    public abstract void UpdateEvent();
-    public abstract bool IsFinished();
+    int Countdown { get; set; }
+    string Name { get; set; }
+    Actor Owner { get; set;}
+    int TimePoints(CommandQueue queue);
+    void Execute(CommandQueue queue);
+    void UpdateCommand();
+    bool IsFinished();
 }
