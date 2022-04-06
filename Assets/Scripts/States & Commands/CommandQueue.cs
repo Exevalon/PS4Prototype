@@ -53,7 +53,7 @@ public class CommandQueue
     
     public bool ActorHasCommand(Actor actor)
     {
-        ICommand current = currentCommand;
+        ICommand current = currentCommand == null ? new Command() : currentCommand;
 
         if (current.Owner == actor)
             return true;
@@ -67,7 +67,7 @@ public class CommandQueue
         return false;
     }
     
-    public void RemoveCommandByActor(Actor actor)
+    public void RemoveCommandsByActor(Actor actor)
     {
         for(int i = commandList.Count - 1; i > 0; i--)
         {

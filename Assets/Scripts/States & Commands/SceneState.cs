@@ -4,8 +4,11 @@ using UnityEngine;
 
 public abstract class SceneState
 {
-    //This state representes a "Scene"
+    //This state representes a "Scene" that will handle a series of events and clean up
 
+    public abstract void UpdateScene();
+    public abstract bool IsPartyDefeated();
     public abstract Actor GetTarget(Actor target);
-    public abstract Actor OnDead(Actor target);
+    public abstract List<Actor> GetLivePartyActors();
+    public abstract void OnDead(Actor target);
 }
