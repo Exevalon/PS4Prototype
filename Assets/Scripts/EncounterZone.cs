@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EncounterZone : MonoBehaviour
 {
+    [SerializeField]
+    private GameManager gameManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Alys")
@@ -24,7 +27,7 @@ public class EncounterZone : MonoBehaviour
 
             if (chance == 1)
             {
-                GameManager.GoToCombat();
+                gameManager.GoToCombat();
             }
         }
     }

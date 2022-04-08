@@ -28,7 +28,7 @@ public class Command_Attack : ICommand
 
     public void Execute(CommandQueue queue)
     {
-        var target = Target;
+        Actor target = Target;
 
         if (target.HP <= 0)
             target = sceneState.GetTarget(Owner);

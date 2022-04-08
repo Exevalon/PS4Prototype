@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public event EventHandler startHandleInput;
     public static event EventHandler combatEnter;
 
-    public CombatScene combatScene;
-
     public CampMenu campMenu;
     public StartMenu startMenu;
     public CombatState combatState;
@@ -41,22 +39,6 @@ public class GameManager : MonoBehaviour
 
         commandQueue.Print();
         */
-
-        // Create a new combat scene, add enemies and party members, and do a test run
-        List<Actor> party = new List<Actor>();
-        List<Actor> enemies = new List<Actor>();
-        Hero hero = new Hero();
-        Hero heroine = new Hero() { ActorName = "Heroine", AttackPower = 5 };
-        Gobblerin gobblerin = new Gobblerin();
-        Gobblerin gobblerin1 = new Gobblerin() { ActorName = "Gobblerin 1"};
-
-        party.Add(hero);
-        party.Add(heroine);
-        enemies.Add(gobblerin);
-        enemies.Add(gobblerin1);
-
-        combatScene = new CombatScene(party, enemies);
-        Debug.Log($"Created {combatScene} object");
     }
 
     private void Update()
@@ -67,53 +49,19 @@ public class GameManager : MonoBehaviour
         if (InputManager.Instance.GetStartButton())
             HandleInput(startHandleInput);
 
-        combatScene.UpdateScene();
+        if(CombatState.isCombatStarted)
+            combatState.UpdateState();
     }
 
-    public static void HandleInput(EventHandler eventHandler)
+    public void HandleInput(EventHandler eventHandler)
     {
         EventHandler handler = eventHandler;
-        GameManager manager = MonoBehaviour.FindObjectOfType<GameManager>();
         if (handler != null)
-            handler(manager, EventArgs.Empty);
+            handler(handler, EventArgs.Empty);
     }
 
-    public static void GoToCombat()
+    public void GoToCombat()
     {
         HandleInput(combatEnter);
-    }
-}
-
-public class Hero : Actor
-{
-    public Hero()
-    {
-        Init();
-    }
-
-    public void Init()
-    {
-        ActorName = "Hero";
-        ActorSpeed = 3;
-        AttackPower = 2;
-        HP = 5;
-        isPlayer = true;
-    }
-}
-
-public class Gobblerin : Actor
-{
-    public Gobblerin()
-    {
-        Init();
-    }
-
-    public void Init()
-    {
-        ActorName = "Gobblerin";
-        ActorSpeed = 2;
-        AttackPower = 2;
-        HP = 5;
-        isPlayer = false;
     }
 }

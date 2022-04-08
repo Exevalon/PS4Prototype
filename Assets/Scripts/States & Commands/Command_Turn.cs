@@ -28,7 +28,7 @@ public class Command_Turn : ICommand
     public void Execute(CommandQueue queue)
     {
         // We choose a rando guy
-        var target = sceneState.GetTarget(Owner);
+        Actor target = sceneState.GetTarget(Owner);
         string msg = $"{Owner.ActorName} decides to wreck {target.ActorName}";
         Debug.Log(msg);
 
