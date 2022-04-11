@@ -49,8 +49,10 @@ public class GameManager : MonoBehaviour
         if (InputManager.Instance.GetStartButton())
             HandleInput(startHandleInput);
 
-        if(CombatState.isCombatStarted)
+        if (CombatState.isCombatStarted)
             combatState.UpdateState();
+        if(Input.GetKeyDown(KeyCode.G))
+            GoToCombat();
     }
 
     public void HandleInput(EventHandler eventHandler)

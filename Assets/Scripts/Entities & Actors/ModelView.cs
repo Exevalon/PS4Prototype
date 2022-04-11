@@ -14,11 +14,4 @@ public class ModelView : MonoBehaviour
         DontDestroyOnLoad(this);
         Sprite = GetComponent<SpriteRenderer>();
     }
-
-    private void Start()
-    {
-        Sprite.sprite = actor.Sprite;
-        Sprite.sortingLayerName = actor.sortingLayer;
-        Sprite.sortingOrder = actor.order;
-    }
 }
