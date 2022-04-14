@@ -50,3 +50,6 @@ TagManager:
   - name: Player
     uniqueID: 2745380245
     locked: 0
+  - name: Command UI
+    uniqueID: 2071858015
+    locked: 0

@@ -108,4 +108,14 @@ public class CombatScene : SceneState
             AddTurns(enemies);
         }
     }
+
+    public override bool IsPartyMember(Actor actor)
+    {
+        foreach (Actor a in party)
+        {
+            if (actor == a)
+                return true;
+        }
+        return false;
+    }
 }

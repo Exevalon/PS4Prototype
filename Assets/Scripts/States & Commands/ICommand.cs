@@ -10,5 +10,5 @@ public interface ICommand
     int TimePoints(CommandQueue queue);
     void Execute(CommandQueue queue);
     void UpdateCommand();
-    bool IsFinished();
+    bool IsFinished(bool check);
 }

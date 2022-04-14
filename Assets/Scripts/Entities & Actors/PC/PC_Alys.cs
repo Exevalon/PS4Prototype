@@ -17,6 +17,7 @@ public class PC_Alys : Actor
         AttackPower = 2;
         DefensePower = 3;
         HP = 5;
+        TP = 6;
         isPlayer = true;
 
         // Initialize model

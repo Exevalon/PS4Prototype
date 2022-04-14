@@ -46,15 +46,9 @@ public class Command_Attack : ICommand
             sceneState.OnDead(target);
         }
     }
-    public void UpdateCommand()
+    public void UpdateCommand() { }
+    public bool IsFinished(bool check)
     {
-
-    }
-    public bool IsFinished()
-    {
-        // This is where code will go that determines if a command is usable or not
-        // placing a default variable for now
-        bool isFinished = true;
-        return isFinished;
+        return check;
     }
 }

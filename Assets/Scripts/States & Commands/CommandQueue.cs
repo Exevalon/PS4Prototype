@@ -115,7 +115,7 @@ public class CommandQueue
         {
             currentCommand.UpdateCommand();
 
-            if (currentCommand.IsFinished())
+            if (currentCommand.IsFinished(true))
                 currentCommand = null;
             else
                 return;

@@ -11,4 +11,5 @@ public abstract class SceneState
     public abstract Actor GetTarget(Actor target);
     public abstract List<Actor> GetLivePartyActors();
     public abstract void OnDead(Actor target);
+    public abstract bool IsPartyMember(Actor actor);
 }

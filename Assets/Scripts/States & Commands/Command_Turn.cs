@@ -27,25 +27,25 @@ public class Command_Turn : ICommand
 
     public void Execute(CommandQueue queue)
     {
-        // We choose a rando guy
-        Actor target = sceneState.GetTarget(Owner);
-        string msg = $"{Owner.ActorName} decides to wreck {target.ActorName}";
-        Debug.Log(msg);
+        if (sceneState.IsPartyMember(Owner))
+        {
+            // We choose a rando guy
+            Actor target = sceneState.GetTarget(Owner);
+            string msg = $"{Owner.ActorName} decides to wreck {target.ActorName}";
+            Debug.Log(msg);
 
-        // This is the place we pass in the command we care about
-        ICommand command = new Command_Attack(sceneState, Owner, target);
-        int timePoints = TimePoints(queue);
-        queue.Add(command, timePoints);
+            // This is the place we pass in the command we care about
+            ICommand command = new Command_Attack(sceneState, Owner, target);
+            int timePoints = TimePoints(queue);
+            queue.Add(command, timePoints);
+        }
+        else
+            IsFinished(true);
+        
     }
-    public void UpdateCommand()
+    public void UpdateCommand() { }
+    public bool IsFinished(bool check)
     {
-
-    }
-    public bool IsFinished()
-    {
-        // This is where code will go that determines if a command is usable or not
-        // placing a default variable for now
-        bool isFinished = true;
-        return isFinished;
+        return check;
     }
 }
