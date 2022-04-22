@@ -17,9 +17,14 @@ public class InputManager : Singleton<InputManager>
         return Input.GetAxis("Vertical");
     }
 
-    public bool GetInteractButton()
+    public bool GetInteractButton1()
     {
         return Input.GetButtonDown("Fire1");
+    }
+
+    public bool GetInteractButton2()
+    {
+        return Input.GetButtonDown("Fire2");
     }
 
     public bool GetStartButton()

@@ -601,8 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f7e4fb82543b94393cbe8af3e22e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatUIPrefab: {fileID: 1217451465919754003, guid: aafda394dda8d604ebae8d9c2913fbcf, type: 3}
-  CombatChoiceState: {fileID: 8417989261120001859, guid: 39eea9ca15400de41bb31c5789435a09, type: 3}
+  combatChoiceState: {fileID: 8417989261120001856, guid: 39eea9ca15400de41bb31c5789435a09, type: 3}
 --- !u!4 &427143491
 Transform:
   m_ObjectHideFlags: 0

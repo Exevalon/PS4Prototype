@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70293a640c84f3c4fa5da7b96ec96f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatUIPrefab: {fileID: 1217451465919754003, guid: aafda394dda8d604ebae8d9c2913fbcf, type: 3}
+  combatUIObj: {fileID: 0}

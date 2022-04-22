@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ModelView : MonoBehaviour
 {
@@ -14,4 +15,6 @@ public class ModelView : MonoBehaviour
         DontDestroyOnLoad(this);
         Sprite = GetComponent<SpriteRenderer>();
     }
+
+    // The model view should handle the removal of its own object when combat is done
 }

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.Instance.GetInteractButton())
+        if (InputManager.Instance.GetInteractButton1() && !CombatState.isCombatStarted)
             HandleInput(campHandleInput);
 
         if (InputManager.Instance.GetStartButton())
