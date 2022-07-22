@@ -10,8 +10,8 @@ public class CombatState : MonoBehaviour, IState
     private CombatScene combatScene;
     private List<Actor> partyList;
     private List<Actor> enemyList;
-    [SerializeField]
-    private CombatChoiceState combatChoiceState;
+    //[SerializeField]
+    //private CombatChoiceState combatChoiceState;
 
     public static bool isCombatStarted = false;
 
@@ -22,6 +22,8 @@ public class CombatState : MonoBehaviour, IState
 
     public void EnterCombat(object sender, EventArgs e)
     {
+        GameManager.eventIsEnabled = true;
+        SceneManager.LoadScene("Combat", LoadSceneMode.Single);
         OnEnter();
     }
 
@@ -29,9 +31,6 @@ public class CombatState : MonoBehaviour, IState
 
     public void OnEnter()
     {
-        GameManager.eventIsEnabled = true;
-        SceneManager.LoadScene("Combat", LoadSceneMode.Single);
-
         // Create a new combat scene, add enemies and party members, and do a test run
         List<Actor> party = new List<Actor>();
         List<Actor> enemies = new List<Actor>();
@@ -62,14 +61,14 @@ public class CombatState : MonoBehaviour, IState
         enemyList = enemies;
         Debug.Log($"Created {combatScene} object");
 
-        combatChoiceState.CreateCombatChoiceState(party, enemies, this);
+        //combatChoiceState.CreateCombatChoiceState(party, enemies, this);
 
         isCombatStarted = true;
     }
 
     public void OnExit()
     {
-        combatChoiceState.OnExit();
+        //combatChoiceState.OnExit();
         isCombatStarted = false;
         GameManager.eventIsEnabled = false;
     }
@@ -77,8 +76,8 @@ public class CombatState : MonoBehaviour, IState
     public void UpdateState()
     {
         combatScene.UpdateScene();
-        combatChoiceState.UpdateState();
-
+        //combatChoiceState.UpdateState();
+        /*
         foreach(Actor actor in partyList)
         {
             actor.UpdateActorState(actor.state);
@@ -88,10 +87,13 @@ public class CombatState : MonoBehaviour, IState
         {
             actor.UpdateActorState(actor.state);
         }
+        */
     }
 
-    public void CreateCharacters(List<Actor> party)
+    public void CreateCharacters(List<Actor> group)
     {
         // Create the characters for combat and set their states
+        // This will include player characters and enemies
+        // I will need to write an abstract function
     }
 }

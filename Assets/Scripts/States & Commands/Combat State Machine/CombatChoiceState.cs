@@ -65,8 +65,8 @@ public class CombatChoiceState : MonoBehaviour, IState
 
         commandBoxTop = Resources.Load<GameObject>("CommandBoxUI_Top");
         selectionBox = Resources.Load<GameObject>("SelectionBox");
-
         combatUIPrefab = Resources.Load<GameObject>("CombatUI");
+
         combatUIObject = Instantiate(combatUIPrefab, combatState.transform);
 
         OnEnter();
